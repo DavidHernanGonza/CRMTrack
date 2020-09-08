@@ -1,0 +1,23 @@
+  
+body{
+    font-family: 'Roboto', sans-serif;
+  
+    font-family: "Open Sans", sans-serif;
+    
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  
+ .c{
+   background-color:white;
+   border-radius: 1px 1px 1px 1px;
+   height: 30px;
+   margin-top: 3px;
+ }
+    
+   
+    
+    
+  
