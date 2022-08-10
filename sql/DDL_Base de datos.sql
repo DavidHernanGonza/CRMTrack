@@ -244,11 +244,14 @@ ALTER TABLE `tarea`
   ADD PRIMARY KEY (`id_tarea`);
 
 --
+-- Indices de la tabla `usuarios`
+ALTER TABLE `usuarios`
+	ADD PRIMARY KEY (`id`);
+--
 -- AUTO_INCREMENT de la tabla `estatus`
 --
 ALTER TABLE `estatus`
   MODIFY `id_status` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
@@ -279,11 +282,27 @@ ALTER TABLE `dato_gen` ADD FOREIGN KEY (`statuss`) references estatus(`id_status
 ALTER TABLE `dato_gen` ADD FOREIGN KEY (`productos`) references producto(`id_producto`);
 --
 
+--
+-- Índice de la tabla 'usuario'
+--
+ALTER TABLE `usuarios`
+	ADD `nombre` varchar(20) NOT NULL,
+	ADD `apellido_paterno` varchar(20) NOT NULL,
+	ADD `apellido_materno` varchar(20) NOT NULL,
+    ADD `curp` varchar(18) NOT NULL,
+    ADD `telefono` varchar(10) NOT NULL;
+--
 -- --------------------------------------------------------
 
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
+--
+
+-- 
+-- AUTO_INCREMENT de la tabla 'usuarios'
+ALTER TABLE `usuarios`
+    MODIFY `id` int(4) NOT NULL AUTO_INCREMENT;
 --
 
 --
