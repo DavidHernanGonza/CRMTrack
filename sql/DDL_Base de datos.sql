@@ -274,8 +274,6 @@ ALTER TABLE `tarea`
 --
 ALTER TABLE `dato_gen`
   ADD PRIMARY KEY (`id`);
-ALTER TABLE `dato_gen` ADD FULLTEXT KEY `status_cliente` (`status_cliente`,`dato_gene`);
-ALTER TABLE `dato_gen` ADD FULLTEXT KEY `dato_gene` (`dato_gene`);
 ALTER TABLE `dato_gen` ADD FOREIGN KEY (`seguimiento`) references seguimiento(`id_seguimiento`);
 ALTER TABLE `dato_gen` ADD FOREIGN KEY (`tarea`) references tarea(`id_tarea`);
 ALTER TABLE `dato_gen` ADD FOREIGN KEY (`statuss`) references estatus(`id_status`);
