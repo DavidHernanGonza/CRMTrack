@@ -163,10 +163,10 @@ public function datos_genes2($id){
     return $this->lista;
 }
 //insertar cliente-prospecto
-    public function insertar($titulo,$nombre,$apellido,$correo,$f_nacimiento,$genero,$direccion,$n_calle,$c_p,$pais,$region,$estado,$ciudad,$localidad,$selec_lada1,$n_casa,$selec_lada2,$celular,$fax,$selec_lada3,$otro_num,$empresa,$departamento,$agrupacion,$f_prospecto,$estatus_prospecto,$idioma,$comunicacion,$fb,$yt,$tw,$ln,$insta)
+    public function insertar($titulo,$nombre,$apellido,$correo,$f_nacimiento,$id_genero,$direccion,$n_calle,$c_p,$pais,$region,$estado,$ciudad,$localidad,$selec_lada1,$n_casa,$selec_lada2,$celular,$fax,$selec_lada3,$otro_num,$empresa,$departamento,$agrupacion,$f_prospecto,$estatus_prospecto,$idioma,$comunicacion,$fb,$yt,$tw,$ln,$insta)
     {
-        $insert = $this->db->query("INSERT INTO cliente(id_cliente, titulo, nom_cliente, apellido, empresa, departemento, fecha_nacimiento, genero, correo, telefono_casa, celular, fax, otro_felefono, comunicacion_preferido, facebook, youtube, twitter, linkedln, instagram, idioma_preferido, fuente_prospecto, estatus_prospecto, num_calle, direccion, codigo_postal, pais, region, estado, ciudad, localidad, agrupamiento) 
-        VALUES (null,'$titulo','$nombre','$apellido','$empresa','$departamento','$f_nacimiento','$genero','$correo','$selec_lada1.$n_casa','$selec_lada2.$celular','$fax','$selec_lada3.$otro_num','$comunicacion','$fb','$yt','$tw','$ln','$insta','$idioma','$f_prospecto','$estatus_prospecto','$n_calle','$direccion','$c_p','$pais','$region','$estado','$ciudad','$localidad','$agrupacion')");
+        $insert = $this->db->query("INSERT INTO cliente(id_cliente, titulo, nom_cliente, apellido, empresa, departemento, fecha_nacimiento, id_genero, correo, telefono_casa, celular, fax, otro_felefono, comunicacion_preferido, facebook, youtube, twitter, linkedln, instagram, idioma_preferido, fuente_prospecto, estatus_prospecto, num_calle, direccion, codigo_postal, pais, region, estado, ciudad, localidad, agrupamiento) 
+        VALUES (null,'$titulo','$nombre','$apellido','$empresa','$departamento','$f_nacimiento','1','$correo','$selec_lada1.$n_casa','$selec_lada2.$celular','$fax','$selec_lada3.$otro_num','$comunicacion','$fb','$yt','$tw','$ln','$insta','$idioma','$f_prospecto','$estatus_prospecto','$n_calle','$direccion','$c_p','$pais','$region','$estado','$ciudad','$localidad','$agrupacion')");
     }
 
 }
