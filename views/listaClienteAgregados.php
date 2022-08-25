@@ -117,7 +117,7 @@ $statuss = $col3->status_cliente()
     margin-top: 10px;
  }
     
-}
+
 	</style>
 
 </head>
