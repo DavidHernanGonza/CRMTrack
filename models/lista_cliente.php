@@ -26,9 +26,18 @@ class consul{
         }
         return $this->lista;
     }
-   
+   /*
+   public function lista_todos_datos(){
+        $consulta=$this->db->query("SELECT DISTINCT d.fecha_contacto, d.fecha_seguimiento, d.comentario, d.seguimiento, s.icono_seg,d.id,d.tarea, t.icono, d.statuss, d.hora_seguimiento,d.hora_tarea, d.fuente_contacto, c.nom_cliente, c.apellido, c.correo, c.celular, e.color_status, s.id_seguimiento, t.id_tarea FROM dato_gen as d, cliente as c, seguimiento as s, tarea as t, estatus as e WHERE dato_gene not LIKE '%ya compró%' AND not dato_gene LIKE '%Ya compró%' AND not dato_gene LIKE '%compró%' AND not dato_gene LIKE '%compro%' AND c.correo=d.correoda AND s.nom_seguimiento=d.seguimiento AND t.nom_tarea=d.tarea AND e.nom_status=d.statuss");
+        while($filas=$consulta->fetch_assoc()){
+            $this->lista[]=$filas;
+        }
+        return $this->lista;
+    }
+
+   */
     public function lista_todos_datos(){
-        $consulta=$this->db->query("SELECT DISTINCT d.fecha_contacto, d.fecha_seguimiento, d.comentario, d.seguimiento, s.icono_seg,d.id,d.tarea, t.icono, d.statuss, d.hora_seguimeinto,d.hora_tarea, d.fuente_contacto, c.nom_cliente, c.apellido, c.correo, c.celular, e.color_status, s.id_seguimiento, t.id_tarea FROM dato_gen as d, cliente as c, seguimiento as s, tarea as t, estatus as e WHERE dato_gene not LIKE '%ya compró%' AND not dato_gene LIKE '%Ya compró%' AND not dato_gene LIKE '%compró%' AND not dato_gene LIKE '%compro%' AND c.correo=d.correoda AND s.nom_seguimiento=d.seguimiento AND t.nom_tarea=d.tarea AND e.nom_status=d.statuss");
+        $consulta=$this->db->query("SELECT DISTINCT d.fecha_contacto, d.fecha_seguimiento, d.comentario, d.seguimiento, s.icono_seg,d.id,d.tarea, t.icono, d.statuss, d.fuente_contacto, c.nom_cliente, c.apellido, c.correo, c.celular, e.color_status, s.id_seguimiento, t.id_tarea FROM dato_gen as d, cliente as c, seguimiento as s, tarea as t, estatus as e WHERE dato_gene not LIKE '%ya compró%' AND not dato_gene LIKE '%Ya compró%' AND not dato_gene LIKE '%compró%' AND not dato_gene LIKE '%compro%' AND c.correo=d.correoda AND s.nom_seguimiento=d.seguimiento AND t.nom_tarea=d.tarea AND e.nom_status=d.statuss");
         while($filas=$consulta->fetch_assoc()){
             $this->lista[]=$filas;
         }

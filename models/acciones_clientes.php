@@ -104,6 +104,57 @@ class consul
         }
         return $this->lista;
     }
+
+
+    public function existeUsuario($email){
+        $consulta = $this->db->query("SELECT * FROM usuarios WHERE usuario='$email'");
+        while ($filas = $consulta->fetch_assoc()) {
+            $this->lista[] = $filas;
+        }
+        return $this->lista;
+    }
+    public function existeCurp($curp){
+        $consulta = $this->db->query("SELECT * FROM usuarios WHERE curp='$curp'");
+        while ($filas = $consulta->fetch_assoc()) {
+            $this->lista[] = $filas;
+        }
+        return $this->lista;
+    }
+
+
+    //crear cuenta
+    public function crear_cuenta($name,$apellidoP,$apellidoM,$email,$curp,$tel,$pass){
+        $sql = "INSERT INTO usuarios (usuario,contrasena,nombre,apellido_paterno,apellido_materno,curp,telefono) VALUES('$email','$pass','$name','$apellidoP','$apellidoM','$curp','$tel')";      
+        $this->run($sql);
+    }
+
+    private function run($sql){
+        $this->db->begin_transaction(); //Inicia una transacción (usar para insercion, actualizacion, y eliminacion)
+        $transaction = $this->db->query($sql); //Realiza una consulta a la base de datos
+
+        if ($transaction === TRUE) {
+            $this->db->commit();
+            return true;
+        } else {
+            $this->db->rollback();
+            return $this->db->error;
+        }
+    }
+
+    public function genera_contrasena(){
+        $mayusculas = array('A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z' );
+        $minusculas = array('a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z');
+        $numeros = array(1,2,3,4,5,6,7,8,9,0);
+        $caracter = array('+','-','[',']','*','~','_','#',':','?');
+
+        $resultado = array_merge($mayusculas,$minusculas,$numeros,$caracter);
+        $password = "";
+        for ($i=0; $i < 10; $i++) { 
+            $password .= $resultado[rand(0,count($resultado))];
+        }
+        return $password;
+    }
+
   //buscar cliente por id
     public function clientes_id($id){
         $consulta=$this->db->query("SELECT * FROM cliente WHERE correo='$id'");

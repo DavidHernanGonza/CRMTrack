@@ -27,16 +27,19 @@
                 </div>
                 <form class="col-12"  method="POST" action="controllers/login.php" >
                     <div class="form-group" id="user-group">
-                        <input type="text" class="form-control" placeholder="Nombre de Usuario" name="usuario"/>
+                        <input type="text" class="form-control" placeholder="Email" name="usuario"/>
                     </div>
                     <div class="form-group" id="contrasena-group">
-                        <input type="password" class="form-control" placeholder="password" name="contrasena"/>
+                        <input type="password" class="form-control" placeholder="Password" name="contrasena"/>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
+                    <div class="col-12 forgot form-control-sm text-left">
+                        <a href="#">¿Olvidó su contraseña?</a>
+                    </div>                
+                    <button type="submit" class="btn btn-primary mb-1"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>                              
+                    <p class="form-control-sm font-bold text-light">¿No tienes una cuenta? <a href="views/registro.php" class="link-danger" name="registro">Crear cuenta</a></p>                
+                
                 </form>
-                <div class="col-12 forgot">
-                    <a href="#">Recordar contrasena?</a>
-                </div>
+                
                 <!--<div th:if="${param.error}" class="alert alert-danger" role="alert">
 		            Invalid username and password.
 		        </div>
