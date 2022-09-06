@@ -12,7 +12,7 @@ if(isset($_POST['correo'])){
         if($res != ""){
              $cons =  $consulta->addPasswords($correo,$token);
             $email=new Email();
-            $email->enviar($correo,$token);
+            $email->recuperarPassword($correo,$token);
             header("../views/restablecerPassword.php");
         }else{
             header("../views/restablecerPassword.php");

@@ -10,7 +10,7 @@ class Email{
         $link = "http://localhost/CRMTrack-master/controllers/cambiarPassword.php?key=" . $token;
 
         $email = new \SendGrid\Mail\Mail(); 
-        $email->setFrom('lopezbarrientosrosadamaris@gmail.com', "Udevit");
+        $email->setFrom('', "Udevit");
         $email->setSubject("Restablecer Password");
         $email->addTo($correo, "");
         $email->addContent("text/plain", "Restablecer Password");
@@ -27,7 +27,7 @@ class Email{
         );
 
 
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('');
         try {
             $response = $sendgrid->send($email);
             echo'<script type="text/javascript">
@@ -48,7 +48,7 @@ class Email{
 
         $email = new \SendGrid\Mail\Mail();
 
-        $email->setFrom("lopezbarrientosrosadamaris@gmail.com", "UDEV-IT"); //remitente
+        $email->setFrom("", "UDEV-IT"); //remitente
         $email->setSubject("¡Password!"); //asunto
         $email->addTo($destinatario); //destinatario
         $email->addContent("text/plain", "Envío de contraseña");
@@ -56,7 +56,7 @@ class Email{
             "text/html", "<strong>¡Hola, tu contraseña para iniciar sesión es: $password!</strong>"
         );
         
-        $sendgrid = new \SendGrid('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');
+        $sendgrid = new \SendGrid('');
         try {
             $response = $sendgrid->send($email);
             /*print $response->statusCode() . "\n";
