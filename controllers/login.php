@@ -1,6 +1,7 @@
 <?php ob_start();
 include ("../models/acciones_clientes.php");
-include("../models/enviar_email_pass.php");
+//include("../models/enviar_email_pass.php");
+require("../models/enviarEmail.php");
 session_start();
 ?>
     <!-- Compiled and minified CSS -->
