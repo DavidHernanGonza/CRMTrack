@@ -6,13 +6,13 @@ class Email{
 
     function __construct(){
     }
-	public function enviar($correo,$token){
+	public function recuperarPassword($correo,$token){
         $link = "http://localhost/CRMTrack-master/controllers/cambiarPassword.php?key=" . $token;
 
         $email = new \SendGrid\Mail\Mail(); 
-        $email->setFrom($correo, "Udevit");
+        $email->setFrom('lopezbarrientosrosadamaris@gmail.com', "Udevit");
         $email->setSubject("Restablecer Password");
-        $email->addTo('', "");
+        $email->addTo($correo, "");
         $email->addContent("text/plain", "Restablecer Password");
         $email->addContent(
             "text/html", "<h1  style=text-align:center >Hola</h1> <br>
@@ -27,7 +27,7 @@ class Email{
         );
 
 
-        $sendgrid = new \SendGrid('');
+        $sendgrid = new \SendGrid('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');
         try {
             $response = $sendgrid->send($email);
             echo'<script type="text/javascript">
@@ -42,5 +42,29 @@ class Email{
    
         
 	}
+
+
+    public function enviar($password,$destinatario){
+
+        $email = new \SendGrid\Mail\Mail();
+
+        $email->setFrom("lopezbarrientosrosadamaris@gmail.com", "UDEV-IT"); //remitente
+        $email->setSubject("¡Password!"); //asunto
+        $email->addTo($destinatario); //destinatario
+        $email->addContent("text/plain", "Envío de contraseña");
+        $email->addContent(
+            "text/html", "<strong>¡Hola, tu contraseña para iniciar sesión es: $password!</strong>"
+        );
+        
+        $sendgrid = new \SendGrid('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');
+        try {
+            $response = $sendgrid->send($email);
+            /*print $response->statusCode() . "\n";
+            print_r($response->headers());
+            print $response->body() . "\n";*/
+        } catch (Exception $e) {
+            echo 'Caught exception: '.  $e->getMessage(). "\n";
+        } 
+    }
 }
 ?>
